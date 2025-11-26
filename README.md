@@ -33,10 +33,6 @@ airagchatbot/
 ├── .gitignore
 └── README.md
 
-markdown
-Copy code
-
----
 
 ## 🚀 Features
 
@@ -109,8 +105,9 @@ Endpoint	Method	Description
 /health	GET	Health check
 
 🧬 Function Flow
+<img width="681" height="649" alt="mermaid-diagram-f4bNveb-HcE8ZEGYk8S86-low" src="https://github.com/user-attachments/assets/977a2d0e-0cd2-466b-94a8-930a0e0bc7d7" />
 
-d:\Downloads\mermaid-diagram-f4bNveb-HcE8ZEGYk8S86-low.png
+
 
 🧰 Key Modules
 File	Responsibility
@@ -122,18 +119,6 @@ chroma_store.py	Vector DB management
 db.py	MongoDB data persistence
 utils.py	FFmpeg, Whisper, diarization, mail
 
-🧪 Testing
-Use cURL or Postman:
-
-bash
-Copy code
-curl -X POST http://127.0.0.1:8000/upload_audio \
-  -F "file=@meeting.mp3"
-Monitor job progress:
-
-bash
-Copy code
-curl http://127.0.0.1:8000/jobs/<job_id>
 🛠️ Tech Stack
 Category	Technologies
 Backend	FastAPI, LangGraph, OpenAI, PyAnnote
