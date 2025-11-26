@@ -1,0 +1,103 @@
+# -------------------------------
+# Python / FastAPI Backend
+# -------------------------------
+
+# Virtual environments
+.venv/
+venv/
+ENV/
+env/
+
+# Python cache
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Build and packaging
+build/
+dist/
+*.egg-info/
+.eggs/
+
+# Environment variables
+.env
+.env.local
+.env.*.local
+
+# Logs and temporary files
+*.log
+*.pid
+*.jsonl
+*.sqlite3
+*.db
+.DS_Store
+Thumbs.db
+*.bak
+*.swp
+*.tmp
+
+# Byte-compiled files
+*.pyo
+*.pyd
+*.pyc
+
+# FastAPI auto reload / uvicorn files
+*.coverage
+.coverage
+.cache/
+.pytest_cache/
+htmlcov/
+
+# IDE / Editor
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# -------------------------------
+# React / Vite Frontend
+# -------------------------------
+
+frontend/node_modules/
+frontend/dist/
+frontend/.vite/
+frontend/.DS_Store
+frontend/.env
+frontend/.env.local
+frontend/.env.*.local
+frontend/npm-debug.log*
+frontend/yarn-debug.log*
+frontend/yarn-error.log*
+frontend/pnpm-debug.log*
+frontend/package-lock.json
+frontend/.eslintcache
+
+# -------------------------------
+# Data / Checkpoints / Models
+# -------------------------------
+chroma/
+data/
+checkpoints/
+*.bin
+*.pt
+*.model
+*.pkl
+*.npy
+*.npz
+
+# -------------------------------
+# System / OS Files
+# -------------------------------
+.DS_Store
+*.bak
+*.tmp
+*.old
+*.swp
+*.swo
+
+# -------------------------------
+# Miscellaneous
+# -------------------------------
+# Ignore generated diagrams or exported PDFs
+*.png
+*.pdf

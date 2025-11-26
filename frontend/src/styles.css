@@ -1,0 +1,110 @@
+:root {
+  --bg: #0b1020;
+  --card: #121a33;
+  --muted: #8b9cc7;
+  --text: #e6ecff;
+  --accent: #5b8cff;
+  --accent-2: #7ef0b6;
+  --danger: #ff6b6b;
+  --border: #233058;
+}
+
+* { box-sizing: border-box; }
+html, body, #root { height: 100%; }
+body {
+  margin: 0;
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+  color: var(--text);
+  background: radial-gradient(1000px 600px at 80% -10%, #1e2a55 0%, transparent 50%), var(--bg);
+}
+
+.app .container {
+  max-width: 1000px;
+  margin: 20px auto 60px;
+  padding: 0 16px;
+}
+
+.navbar {
+  border-bottom: 1px solid var(--border);
+  background: rgba(13,18,35,0.7);
+  backdrop-filter: blur(6px);
+}
+.navbar .wrap {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 12px 16px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+.brand {
+  font-weight: 700;
+  letter-spacing: .3px;
+}
+.navlinks a {
+  color: var(--muted);
+  text-decoration: none;
+  margin-right: 12px;
+}
+.navlinks a.active { color: var(--text); }
+
+.card {
+  background: linear-gradient(180deg, rgba(18,26,51,0.95), rgba(18,26,51,0.9));
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 18px;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+}
+
+.input, .btn {
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  background: #0e162c;
+  color: var(--text);
+  padding: 10px 12px;
+  outline: none;
+}
+.btn {
+  background: linear-gradient(180deg, #1c2a57, #162044);
+  cursor: pointer;
+}
+.btn:hover { filter: brightness(1.05); }
+
+.btn.primary { background: linear-gradient(180deg, #3969ff, #2d4acc); border-color: #3456e6; }
+.btn.danger { background: linear-gradient(180deg, #ff6b6b, #d95353); border-color: #ff8787; }
+.btn.ghost { background: transparent; }
+
+.row { display: flex; gap: 12px; align-items: center; flex-wrap: wrap; }
+
+.list { display: grid; gap: 10px; }
+.message {
+  padding: 10px 12px;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  background: #0f1730;
+}
+.message .role { color: var(--muted); font-size: 12px; margin-bottom: 4px; }
+.message .text { white-space: pre-wrap; }
+
+.citation {
+  font-size: 12px;
+  color: var(--muted);
+  border-left: 2px solid var(--accent);
+  padding-left: 8px;
+}
+
+.status {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  color: var(--muted);
+}
+.pill {
+  padding: 4px 8px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: #0b142c;
+  font-size: 12px;
+}
+hr { border: none; border-top: 1px solid var(--border); margin: 16px 0; }
