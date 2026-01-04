@@ -1,43 +1,47 @@
 # 🤖 AI-Powered Chatbot with Audio RAG + LangGraph + FastAPI
 
-This repository contains a modular **AI Chatbot system** that integrates **FastAPI**, **LangGraph**, **OpenAI Whisper**, **PyAnnote Diarization**, **ChromaDB**, and **React (Vite)** frontend.  
+This repository contains a modular **AI Chatbot system** that integrates **FastAPI**, **LangGraph**, **OpenAI Whisper**, **PyAnnote Diarization**, **ChromaDB**, and **React (Vite)** frontend.
+
 It supports both **textual chat** and **audio-based transcript analysis**, complete with **retrieval-augmented generation (RAG)**, **web search (Tavily)**, and **email automation (SendGrid)**.
 
 ---
 
 ## 📂 Project Structure
 
+```
 airagchatbot/
 │
 ├── backend/
-│ ├── main.py # FastAPI app entry (endpoints + CORS)
-│ ├── orchestrator.py # LangGraph audio pipeline orchestration
-│ ├── graph.py # Chat router graph for text chat
-│ ├── agent_tools.py # RAG, web, and email tool definitions
-│ ├── chroma_store.py # Vector DB setup (Chroma)
-│ ├── db.py # MongoDB connection and collections
-│ ├── utils.py # FFmpeg, Whisper, diarization, email helpers
-│ ├── requirements.txt # Python dependencies
-│ └── init.py
+│   ├── main.py              # FastAPI app entry (endpoints + CORS)
+│   ├── orchestrator.py      # LangGraph audio pipeline orchestration
+│   ├── graph.py             # Chat router graph for text chat
+│   ├── agent_tools.py       # RAG, web, and email tool definitions
+│   ├── chroma_store.py      # Vector DB setup (Chroma)
+│   ├── db.py                # MongoDB connection and collections
+│   ├── utils.py             # FFmpeg, Whisper, diarization, email helpers
+│   ├── requirements.txt     # Python dependencies
+│   └── __init__.py
 │
 ├── frontend/
-│ ├── src/ # React app source (Vite)
-│ ├── index.html
-│ ├── package.json
-│ ├── vite.config.js
-│ └── ...
+│   ├── src/                 # React app source (Vite)
+│   ├── index.html
+│   ├── package.json
+│   ├── vite.config.js
+│   └── ...
 │
-├── chroma/ # ChromaDB local vector store
-├── .venv/ # Python virtual environment (ignored)
-├── .env # API keys and secrets (ignored)
+├── chroma/                  # ChromaDB local vector store
+├── .venv/                   # Python virtual environment (ignored)
+├── .env                     # API keys and secrets (ignored)
 ├── .gitignore
 └── README.md
+```
 
+---
 
 ## 🚀 Features
 
 ### 🧠 Chat Graph
-- Built with **LangGraph** routing logic  
+- Built with **LangGraph** routing logic
 - Detects intents using regex:
   - **Audio / Transcript queries**
   - **Summary / Action item requests**
@@ -64,76 +68,121 @@ airagchatbot/
 ## ⚙️ Installation
 
 ### 1. Clone the repository
+
 ```bash
 git clone https://github.com/<your-username>/airagchatbot.git
 cd airagchatbot
-2. Backend setup
-bash
-Copy code
+```
+
+### 2. Backend setup
+
+```bash
 cd backend
 python -m venv .venv
-source (.\.venv\Scripts\activate)
+source .venv/bin/activate  # On Windows: .venv\Scripts\activate
 pip install -r requirements.txt
-3. Environment variables
-Create a .env file in /backend:
+```
 
-bash
-Copy code
+### 3. Environment variables
+
+Create a `.env` file in `/backend`:
+
+```env
 OPENAI_API_KEY=your_openai_key
 TAVILY_API_KEY=your_tavily_key
 SENDGRID_API_KEY=your_sendgrid_key
 MONGO_URI=mongodb://localhost:27017
 CHROMA_PATH=../chroma
-4. Run the backend
-bash
-Copy code
+```
+
+### 4. Run the backend
+
+```bash
 uvicorn main:app --reload
-🖥️ Frontend Setup
-bash
-Copy code
+```
+
+---
+
+## 🖥️ Frontend Setup
+
+```bash
 cd ../frontend
 npm install
 npm run dev
-Open http://localhost:5173/ (default Vite port).
+```
 
-🔌 API Endpoints
-Endpoint	Method	Description
-/chat	POST	Handles single chat messages
-/chat_stream	POST	Streams chat responses
-/upload_audio	POST	Uploads and processes audio
-/jobs/{job_id}	GET	Fetches job status and results
-/health	GET	Health check
+Open [http://localhost:5173/](http://localhost:5173/) (default Vite port).
 
-🧬 Function Flow
-<img width="681" height="649" alt="mermaid-diagram-f4bNveb-HcE8ZEGYk8S86-low" src="https://github.com/user-attachments/assets/977a2d0e-0cd2-466b-94a8-930a0e0bc7d7" />
+---
 
+## 🔌 API Endpoints
 
+| Endpoint | Method | Description |
+|----------|--------|-------------|
+| `/chat` | POST | Handles single chat messages |
+| `/chat_stream` | POST | Streams chat responses |
+| `/upload_audio` | POST | Uploads and processes audio |
+| `/jobs/{job_id}` | GET | Fetches job status and results |
+| `/health` | GET | Health check |
 
-🧰 Key Modules
-File	Responsibility
-main.py	FastAPI entry + routing
-graph.py	LangGraph chat node router
-orchestrator.py	Audio-RAG pipeline builder
-agent_tools.py	Tools for RAG, web, email
-chroma_store.py	Vector DB management
-db.py	MongoDB data persistence
-utils.py	FFmpeg, Whisper, diarization, mail
+---
 
-🛠️ Tech Stack
-Category	Technologies
-Backend	FastAPI, LangGraph, OpenAI, PyAnnote
-Vector DB	ChromaDB
-Database	MongoDB
-Search	Tavily API
-Email	SendGrid
-Frontend	React, Vite, Axios
+## 🧬 Function Flow
 
-📄 License
-This project is licensed under the MIT License.
+![System Architecture](https://github.com/user-attachments/assets/977a2d0e-0cd2-466b-94a8-930a0e0bc7d7)
 
-🧑‍💻 Author
-Raj Shekhar
-Full-Stack Developer & AI Engineer
+---
 
-🌐 GitHub
-💼 LinkedIn
+## 🧰 Key Modules
+
+| File | Responsibility |
+|------|----------------|
+| `main.py` | FastAPI entry + routing |
+| `graph.py` | LangGraph chat node router |
+| `orchestrator.py` | Audio-RAG pipeline builder |
+| `agent_tools.py` | Tools for RAG, web, email |
+| `chroma_store.py` | Vector DB management |
+| `db.py` | MongoDB data persistence |
+| `utils.py` | FFmpeg, Whisper, diarization, mail |
+
+---
+
+## 🛠️ Tech Stack
+
+| Category | Technologies |
+|----------|--------------|
+| **Backend** | FastAPI, LangGraph, OpenAI, PyAnnote |
+| **Vector DB** | ChromaDB |
+| **Database** | MongoDB |
+| **Search** | Tavily API |
+| **Email** | SendGrid |
+| **Frontend** | React, Vite, Axios |
+
+---
+
+## 📄 License
+
+This project is licensed under the **MIT License**.
+
+---
+
+## 🧑‍💻 Author
+
+**Raj Shekhar**  
+*Full-Stack Developer & AI Engineer*
+
+- 🌐 [GitHub](https://github.com/your-username)
+- 💼 [LinkedIn](https://linkedin.com/in/your-profile)
+
+---
+
+## 🤝 Contributing
+
+Contributions, issues, and feature requests are welcome!  
+Feel free to check the [issues page](https://github.com/your-username/airagchatbot/issues).
+
+---
+
+## ⭐ Show your support
+
+Give a ⭐️ if this project helped you!
