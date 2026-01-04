@@ -160,26 +160,12 @@ Open [http://localhost:5173/](http://localhost:5173/) (default Vite port).
 
 ---
 
-## 📄 License
-
-This project is licensed under the **MIT License**.
-
----
 
 ## 🧑‍💻 Author
 
 **Raj Shekhar**  
 *Full-Stack Developer & AI Engineer*
 
-- 🌐 [GitHub](https://github.com/your-username)
-- 💼 [LinkedIn](https://linkedin.com/in/your-profile)
-
----
-
-## 🤝 Contributing
-
-Contributions, issues, and feature requests are welcome!  
-Feel free to check the [issues page](https://github.com/your-username/airagchatbot/issues).
 
 ---
 
